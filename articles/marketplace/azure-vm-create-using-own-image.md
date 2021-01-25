@@ -26,6 +26,13 @@ This section describes how to size, update, and generalize an Azure VM. These st
 
 [!INCLUDE [Discussion of VHD sizing](includes/vhd-size.md)]
 
+### First partition starts at 1 MB (2048 Sectors)
+If you are building your own image, ensure that first 2048 sectors (1 MB) of the OS disk is empty. Otherwise, your publishing will fail. This requirement is applicable to the OS disk only (not data disks). Azure supports both GPT and MBR disks.
+
+> [!NOTE]
+> If you are building your image from an approved base, you may skip this requirement. To use an approved base image instead, follow the instructions in [Create a VM image from an approved base](azure-vm-create-using-approved-base.md).
+
+
 ### Install the most current updates
 
 [!INCLUDE [Discussion of most current updates](includes/most-current-updates.md)]
